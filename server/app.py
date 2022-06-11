@@ -1,16 +1,16 @@
-from flask import Flask
+from flask import Flask, make_response
 from flask_cors import CORS, cross_origin
 
 # Create the application instance
 app = Flask(__name__)
 cors = CORS(app)
-app.config["CORS_HEADERS"] = "Content-Type"
+app.config["CORS_HEADERS"] = "Cross-Origin"
 
 
 @app.route("/api/hello")
 @cross_origin()
 def home():
-    return "Hello World!"
+    return {"hello": "world"}
 
 
 if __name__ == "__main__":

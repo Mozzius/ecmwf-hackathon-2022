@@ -2,7 +2,9 @@ import useSWR from "swr";
 import classes from "./App.module.css";
 
 function App() {
-  const { data, error } = useSWR("/api/hello");
+  const { data, error } = useSWR("/api/hello", (url) =>
+    fetch(`http://localhost:8080${url}`).then((res) => res.json())
+  );
 
   if (error) console.error(error);
 

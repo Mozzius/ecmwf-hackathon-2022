@@ -12,9 +12,8 @@ root.render(
   <React.StrictMode>
     <SWRConfig
       value={{
-        fetcher: async (url) => {
-          const res = await fetch(url);
-          return res.json();
+        fetcher: (url) => {
+          fetch(`http://localhost:8080${url}`).then((res) => res.json());
         },
       }}
     >

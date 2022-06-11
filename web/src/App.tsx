@@ -1,19 +1,22 @@
 import useSWR from "swr";
-import classes from "./App.module.css";
+
+import "./App.css";
+
+type Observation = {
+  id: string;
+  time: string;
+  u10: string;
+  v10: string;
+};
 
 function App() {
-  const { data, error } = useSWR("/api/hello", (url) =>
-    fetch(`http://localhost:8080${url}`).then((res) => res.json())
-  );
+  const { data, error } = useSWR<Observation[]>("/api/data");
 
-  if (error) console.error(error);
+  if (error) return <p>Failed to load</p>;
 
-  return (
-    <div>
-      <h1>Should say hello world:</h1>
-      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
-    </div>
-  );
+  if (!data) return <p>Loading...</p>;
+
+  return <div className="container"></div>;
 }
 
 export default App;

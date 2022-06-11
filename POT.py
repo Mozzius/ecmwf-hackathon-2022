@@ -9,7 +9,6 @@
 
 ######### REFACTOR TO USE HEADER CLASS
 import pandas as pd
-import re
 import scipy.cluster.hierarchy as hclust
 import numpy as np
 

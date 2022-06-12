@@ -8,7 +8,9 @@ const storms = {
   0: {
     name: "This interactive experiment shows the wind history of Reading",
     info: `Scroll right to explore the various storms that have affected Reading over the past decades.
-  These lines show the wind direction and magnitude of each month.`,
+  These lines show the wind direction and magnitude of each month.
+  Unfortunately, details about some of the historical wind events is patchy, especially futher back in time.
+  Futher work would be needed to find more data about the historical events.`,
   },
   840: {
     name: "Storm Brendan",
@@ -43,6 +45,11 @@ const storms = {
   565: {
     name: "Winter Storms 1997",
     info: "A very snowy winter lead to blizzard conditions in the UK and Ireland.",
+  },
+  865: {
+    name: "Storm Eunice",
+    info: `February 2022 saw an intense extratropical cyclone cause huge disruption and damage across the UK and Europe. A red weather warning was issued on 17 February for parts of South West England and South Wales, with a second red warning issued on 18 February, the day the storm struck, for London, the South East and East of England.
+    Eunice set a new record for the fastest wind gust recorded in England with 122 miles per hour (196 km/h) at The Needles, Isle of Wight. The storm was one of the most powerful to impact the south coast of England since the Great Storm of 1987.`,
   },
 };
 
@@ -125,7 +132,7 @@ function WindHistory() {
           );
         })}
       </div>
-      <div className="place">Location: Reading</div>
+      {/* <div className="place">Location: Reading</div> */}
       <div className="date">{date}</div>
     </div>
   );

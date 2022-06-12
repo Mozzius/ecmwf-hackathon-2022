@@ -13,7 +13,7 @@ def hoursSinceEPOCHtoUNIX(hours, since=1900):
 
 @app.route("/api/data")
 def home():
-    file = "extracted_wind_with_spd_dir_monthly_51.4N0.1E.csv"
+    file = "csvs/extracted_wind_with_spd_dir_monthly_51.4N0.1E.csv"
     # get CSV data and turn into dictionary
     with open(file) as csvfile:
         reader = csv.DictReader(csvfile)

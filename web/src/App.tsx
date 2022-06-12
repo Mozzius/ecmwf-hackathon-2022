@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Routes, Route } from "react-router-dom";
@@ -25,6 +26,18 @@ function Data() {
   );
 }
 
+function Vectors() {
+  const [vid, setVid] = useState<"vid1" | "vid2">("vid1");
+
+  return (
+    <div>
+      <button onClick={() => setVid("vid1")}>Video 1</button>
+      <button onClick={() => setVid("vid2")}>Video 2</button>
+      <video width="100%" height="auto" loop autoPlay src={`/${vid}.webm`} />
+    </div>
+  );
+}
+
 function App() {
   return (
     <div className="app">
@@ -40,15 +53,15 @@ function App() {
           </LinkContainer>
         </Nav.Item>
         <Nav.Item>
-          <LinkContainer to="/data">
-            <Nav.Link className="linkles">Data</Nav.Link>
+          <LinkContainer to="/vectors">
+            <Nav.Link className="linkles">Vectors</Nav.Link>
           </LinkContainer>
         </Nav.Item>
       </Nav>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/wind-history" element={<WindHistory />} />
-        <Route path="/data" element={<Data />} />
+        <Route path="/vectors" element={<Vectors />} />
       </Routes>
     </div>
   );

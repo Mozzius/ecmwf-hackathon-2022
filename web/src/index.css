@@ -93,7 +93,7 @@ p {
 
 .linkles {
   color: #ffffff !important;
-  background-color: #235785 !important;
+  background-color: rgb(36, 87, 133, 0.7) !important;
 }
 
 .linkles.active {

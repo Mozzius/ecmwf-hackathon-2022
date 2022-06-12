@@ -1,0 +1,87 @@
+.wind-history {
+  width: 100%;
+  height: calc(100vh - 42px);
+  position: relative;
+  overflow: auto;
+  background-color: white;
+}
+
+.observations {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: max-content;
+  margin-left: calc(50vw - 15px);
+}
+
+.observation {
+  width: 50px;
+  height: 50px;
+  display: block;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.observation:last-of-type {
+  margin-right: calc(50vw - 15px);
+}
+
+.wind {
+  height: 20px;
+  width: 2px;
+  background-color: black;
+  transform-origin: center center;
+}
+
+.storm {
+  position: absolute;
+  top: 10%;
+  width: 60vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.storm h1 {
+  text-shadow: none;
+  color: black;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  padding: 0;
+  width: 100%;
+}
+
+.storm p {
+  text-shadow: none;
+  color: black;
+  text-align: left;
+  padding: 0;
+  margin: 0 0 5px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.date,
+.place {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+.place {
+  top: calc(15px + 42px);
+  left: 15px;
+}
+
+.date {
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}

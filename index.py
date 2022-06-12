@@ -1,4 +1,3 @@
-from time import strftime
 import netCDF4
 import pandas as pd
 import numpy as np
@@ -16,7 +15,7 @@ def find_closest_lat_lon_index(lat,lon,lat_arr,lon_arr):
 def extract_data(file_path,lat,lon):
     ## Extracts the u10,v10 by time and location returns an array of pandas dataframes for each coord pair
     
-    MET_VARIABLES = ["u10","v10","fg"]
+    MET_VARIABLES = ["u10","v10","i10fg"]
     
     # Open the file
     f = netCDF4.Dataset(file_path, "r")
@@ -36,7 +35,7 @@ def extract_data(file_path,lat,lon):
     return_df = pd.DataFrame({"time":time_arr})
     for var in MET_VARIABLES:
         #print("Lat index: {0} | Lon index: {1}\n\n".format(lat_ind,lon_ind))
-        
+        print(f.variables[var])
         return_df[var] = f.variables[var][0:int(len(time_arr)),(lat_ind):(lat_ind+1),(lon_ind):(lon_ind+1)].flatten()
     
     # Close the file
@@ -74,22 +73,35 @@ if __name__ == "__main__":
     data_frame = convertU10V10toSpdDir(data_frame)
     #data_frame.to_csv("extracted_wind_with_spd_dir_monthly_{0}N{1}E.csv".format(LAT,LON))
    
-    speed_ave = np.median(data_frame["wind_speed"].to_numpy())
+    speed_ave = np.mean(data_frame["i10fg"].to_numpy())
     print("Wind speed average:", speed_ave)
     dev_from_ave = np.zeros(shape=len(data_frame["wind_speed"]))
     for i in range(len(dev_from_ave)):
-        dev_from_ave[i] = speed_ave - data_frame.at[i,"wind_speed"]
+        dev_from_ave[i] = -math.exp(speed_ave - data_frame.at[i,"i10fg"])
     data_frame["wind_spd_dev_from_ave"] = dev_from_ave
     print(data_frame.head())
     
     plots.plotExportDirPolar(data_frame["time"].to_numpy(),
                             data_frame["wind_dir_rad"].to_numpy(),#np.ones(shape=(len(data_frame["time"]))),
-                            data_frame["fg"].to_numpy())
+                            data_frame["wind_spd_dev_from_ave"].to_numpy(),
+                            file_name= "WindGusts_80-22.svg")
     
     """plots.plotExportHorizontalBarCode(data_frame["time"].to_numpy(),
                                       data_frame["wind_dir_rad"].to_numpy(),#np.ones(shape=(len(data_frame["time"]))),
                                     data_frame["wind_spd_dev_from_ave"].to_numpy())    
     """
+    
+    nat_dis_df = pd.read_csv("ALL_NAT_DIS.CSV")
+    base = np.quantile(nat_dis_df["Number of Dis"].to_numpy(),[0.95])
+    print("baseline", base)
+    dev_from_q = np.zeros(shape=len(nat_dis_df["Number of Dis"]))
+    for i in range(len(dev_from_q)):
+        dev_from_q[i] = -(base - nat_dis_df.at[i,"Number of Dis"])
+    nat_dis_df["dev_from_quant"] = dev_from_q
+    plots.plotExportDirPolar(nat_dis_df["Year"].to_numpy(),
+                             nat_dis_df["Number of Dis"].to_numpy(),
+                             nat_dis_df["dev_from_quant"].to_numpy(),
+                             file_name="ALL_NAT_DIS.svg")
     
 
 

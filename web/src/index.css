@@ -5,4 +5,86 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #2181b4dd !important;
+  background-image: linear-gradient(
+      30deg,
+      #2687bceb 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #2687bceb 87.5%,
+      #2687bceb
+    ),
+    linear-gradient(
+      150deg,
+      #2687bceb 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #2687bceb 87.5%,
+      #2687bceb
+    ),
+    linear-gradient(
+      30deg,
+      #2687bceb 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #2687bceb 87.5%,
+      #2687bceb
+    ),
+    linear-gradient(
+      150deg,
+      #2687bceb 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #2687bceb 87.5%,
+      #2687bceb
+    ),
+    linear-gradient(
+      60deg,
+      #419ed0f6 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #419ed0f6 75%,
+      #419ed0f6
+    ),
+    linear-gradient(
+      60deg,
+      #419ed0f6 25%,
+      transparent 25.5%,
+      transparent 75%,
+      #419ed0f6 75%,
+      #419ed0f6
+    );
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+  padding: 20px 0;
+  color: #ffffff;
+  text-shadow: 3px 3px 1px #235785;
+}
+
+h2 {
+  font-size: 30px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 3px 3px 1px #235785;
+}
+
+p {
+  font-size: 20px;
+  padding-left: 100px;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #235785;
+}
+
+.linkles {
+  color: #ffffff !important;
+}
+
+.linkles.active {
+  color: #ffffff !important;
+  background-color: #235785 !important;
 }

@@ -73,7 +73,7 @@ if __name__ == "__main__":
     data_frame = convertU10V10toSpdDir(data_frame)
     #data_frame.to_csv("extracted_wind_with_spd_dir_monthly_{0}N{1}E.csv".format(LAT,LON))
    
-    speed_ave = np.mean(data_frame["i10fg"].to_numpy())
+    """speed_ave = np.mean(data_frame["i10fg"].to_numpy())
     print("Wind speed average:", speed_ave)
     dev_from_ave = np.zeros(shape=len(data_frame["wind_speed"]))
     for i in range(len(dev_from_ave)):
@@ -85,13 +85,13 @@ if __name__ == "__main__":
                             data_frame["wind_dir_rad"].to_numpy(),#np.ones(shape=(len(data_frame["time"]))),
                             data_frame["wind_spd_dev_from_ave"].to_numpy(),
                             file_name= "WindGusts_80-22.svg")
-    
+    """
     """plots.plotExportHorizontalBarCode(data_frame["time"].to_numpy(),
                                       data_frame["wind_dir_rad"].to_numpy(),#np.ones(shape=(len(data_frame["time"]))),
                                     data_frame["wind_spd_dev_from_ave"].to_numpy())    
     """
     
-    nat_dis_df = pd.read_csv("ALL_NAT_DIS.CSV")
+    nat_dis_df = pd.read_csv("extreme_weather.csv")
     base = np.quantile(nat_dis_df["Number of Dis"].to_numpy(),[0.95])
     print("baseline", base)
     dev_from_q = np.zeros(shape=len(nat_dis_df["Number of Dis"]))
@@ -101,7 +101,7 @@ if __name__ == "__main__":
     plots.plotExportDirPolar(nat_dis_df["Year"].to_numpy(),
                              nat_dis_df["Number of Dis"].to_numpy(),
                              nat_dis_df["dev_from_quant"].to_numpy(),
-                             file_name="ALL_NAT_DIS.svg")
+                             file_name="extreme_weather.svg")
     
 
 

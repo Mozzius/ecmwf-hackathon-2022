@@ -7,7 +7,8 @@ import "./WindHistory.css";
 const storms = {
   0: {
     name: "This interactive experiment shows the wind history of Reading",
-    info: "Scroll right to explore the various storms that have affected Reading over the past decades.",
+    info: `Scroll right to explore the various storms that have affected Reading over the past decades.
+  These lines show the wind direction and magnitude of each month.`,
   },
   840: {
     name: "Storm Brendan",
@@ -24,6 +25,16 @@ const storms = {
   718: {
     name: "The Big Freeze of 2010",
     info: "European windstorms bringing heavy rain and gale-force winds caused damage and flooding to the south of Great Britain on 13–14 November. November was the wettest month across the United Kingdom since records began in 1914",
+  },
+  481: {
+    name: "Towyn Floods",
+    info: `The coincidence on the 26th and 27th of strong winds, low atmospheric pressure and ‘spring’ tides led to severe flooding and waves damage along several British coasts. Towyn, Clwyd suffered a major disaster when sea defences were overwhelmed.
+    Gales affected all areas across the UK and gusts in excess of 70 mph were very common.`,
+  },
+  516: {
+    name: "The Braer Storm",
+    info: `High tides and gales caused serious flooding and the death of a canoeist in the Strathclyde Region of Scotland.
+    Wintry showers were widespread across Northern Ireland and Scotland bringing down power cables in the Lothian Region.`,
   },
 };
 

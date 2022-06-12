@@ -36,6 +36,14 @@ const storms = {
     info: `High tides and gales caused serious flooding and the death of a canoeist in the Strathclyde Region of Scotland.
     Wintry showers were widespread across Northern Ireland and Scotland bringing down power cables in the Lothian Region.`,
   },
+  683: {
+    name: "Winter Storms 2006",
+    info: "High winds were recorded across the UK and Ireland.",
+  },
+  565: {
+    name: "Winter Storms 1997",
+    info: "A very snowy winter lead to blizzard conditions in the UK and Ireland.",
+  },
 };
 
 type Observation = {

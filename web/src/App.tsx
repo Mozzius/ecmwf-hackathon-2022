@@ -18,14 +18,6 @@ function Home() {
   );
 }
 
-function Data() {
-  return (
-    <div>
-      <h1>Data</h1>
-    </div>
-  );
-}
-
 function Vectors() {
   const [vid, setVid] = useState<"vid1" | "vid2">("vid1");
 

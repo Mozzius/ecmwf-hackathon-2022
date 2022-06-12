@@ -2,7 +2,7 @@ import matplotlib.pyplot as mpl
 import cmocean
 import numpy as np
 
-def plotExportDirPolar(x,y,z,color_bar=False,file_name=""):
+def plotExportDirPolar(x,y,z,color_bar=False,file_name="",save=True):
     # generate and export to svg a polar plot of a directriona spectra sa given by the spectra data
     # Use the cmoceon package for the colourmaps
     #axes = mpl.figure.add_subplot(projection="polar")
@@ -27,11 +27,12 @@ def plotExportDirPolar(x,y,z,color_bar=False,file_name=""):
     if color_bar:
         c_bar = mpl.figure.colorbar(cs)
         c_bar.ax.set_xlabel("Wind Magnitude")
-    mpl.savefig(file_name)
+    if save:
+        mpl.savefig(file_name)
     mpl.show()
         
 
-def plotExportHorizontalBarCode(x,y,z):
+def plotExportHorizontalBarCode(x,y,z,save=True):
     figure = mpl.figure()
     axes = figure.add_subplot()#projection="polar")
     
@@ -42,8 +43,8 @@ def plotExportHorizontalBarCode(x,y,z):
     axes.get_xaxis().set_visible(False);
     axes.get_yaxis().set_visible(False);
     
-    
-    
+    if save:
+        mpl.savefig("wind-gust-direction.svg")
     mpl.show()
     
     

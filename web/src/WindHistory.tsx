@@ -12,6 +12,10 @@ const storms = {
   Unfortunately, details about some of the historical wind events is patchy, especially futher back in time.
   Futher work would be needed to find more data about the historical events.`,
   },
+  44: {
+    name: "The North Sea Flood of 1953",
+    info: "One of the worst peacetime disasters of the 20th century that caused catastrophic damage and loss of life in Scotland, England, Belgium and The Netherlands",
+  },
   840: {
     name: "Storm Brendan",
     info: "Storm Brendan was a deep Atlantic low-pressure system that brought strong winds and heavy rain to the UK and Ireland on 13 January 2020.  Named by Met Eireann, it was the second named storm of the 2019/2020 season.",

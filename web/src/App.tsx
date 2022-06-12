@@ -10,10 +10,33 @@ function Home() {
     <div>
       <h1>ECMWF Hackathon</h1>
       <h2>
-        Visualising Wind Data by Earth, Wind and Graphs (Without any boring
-        graphs)
+        Visualising Data by Earth, Wind and Graphs (Without any boring graphs)
       </h2>
-      <p>import data</p>
+      <div className="central">
+        <ul>
+          <li>
+            Stuart - Parselmouth{" "}
+            <img src="/py.png" className="logo" alt="python" />
+          </li>
+          <li>
+            Samuel - React Senior{" "}
+            <img src="/reactionary.png" className="logo" alt="react" />
+          </li>
+          <li>
+            Stephen - RStudio Render{" "}
+            <img src="/arrr.png" className="logo" alt="r studio" />
+          </li>
+          <li>
+            Karius - Vector Fan{" "}
+            <img src="/matlab.png" className="logo" alt="matlab" />
+          </li>
+          <li>
+            Finbar - Moral Support / React Junior{" "}
+            <img src="/reactionary.png" className="logo" alt="react" />
+          </li>
+        </ul>
+        <p> Our goal was to visualise Wind data in a simple, readable form.</p>
+      </div>
     </div>
   );
 }

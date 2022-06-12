@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  overflow: auto;
+}
+
+.observations {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: max-content;
+  margin: 0 calc(50% - 15px);
+}
+
+.observation {
+  width: 50px;
+  height: 50px;
+  display: block;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wind {
+  height: 20px;
+  width: 2px;
+  background-color: black;
+  transform-origin: center center;
+}
+
+.storm {
+  position: absolute;
+  top: 30%;
+  width: 80vw;
+}
+
+.date {
+  position: fixed;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}

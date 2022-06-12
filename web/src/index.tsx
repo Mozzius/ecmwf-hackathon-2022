@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { SWRConfig } from "swr";
 
-import App from "./App";
+import WindHistiry from "./WindHistory";
 import "./index.css";
 
 const root = ReactDOM.createRoot(
@@ -15,7 +15,7 @@ root.render(
         fetcher: (url) => fetch(url).then((res) => res.json()),
       }}
     >
-      <App />
+      <WindHistiry />
     </SWRConfig>
   </React.StrictMode>
 );

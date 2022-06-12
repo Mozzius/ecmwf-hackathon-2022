@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: INDEX",
+            "type": "python",
+            "request": "launch",
+            "program": "C:\\Users\\sevans.CORP\\Documents\\GitHub\\ecmwf-hackathon-2022\\index.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: DOWNLOAD",
+            "type": "python",
+            "request": "launch",
+            "program": "C:\\Users\\sevans.CORP\\Documents\\GitHub\\ecmwf-hackathon-2022\\api.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

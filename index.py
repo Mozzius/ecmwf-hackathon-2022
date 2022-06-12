@@ -16,7 +16,7 @@ def find_closest_lat_lon_index(lat,lon,lat_arr,lon_arr):
 def extract_data(file_path,lat,lon):
     ## Extracts the u10,v10 by time and location returns an array of pandas dataframes for each coord pair
     
-    MET_VARIABLES = ["u10","v10"]
+    MET_VARIABLES = ["u10","v10","fg"]
     
     # Open the file
     f = netCDF4.Dataset(file_path, "r")
@@ -67,24 +67,29 @@ def hoursSinceEPOCHtoUNIX(days,YEAR="1900"):
     
     
 if __name__ == "__main__":
-    LAT = 51.4
-    LON = 0.1
-    data_frame = extract_data("wind-data-monthly.nc",LAT,LON)
+    LAT = 18.53
+    LON = -72.3
+    data_frame = extract_data("wind-data-gust-monthly-haiti.nc",LAT,LON)
     #data_frame.to_csv("extracted_wind_{0}N{0}E.csv".format(LAT,LON))
     data_frame = convertU10V10toSpdDir(data_frame)
-    data_frame.to_csv("extracted_wind_with_spd_dir_monthly_{0}N{1}E.csv".format(LAT,LON))
-    speed_ave = np.average(data_frame["wind_speed"].to_numpy())
-    
+    #data_frame.to_csv("extracted_wind_with_spd_dir_monthly_{0}N{1}E.csv".format(LAT,LON))
+   
+    speed_ave = np.median(data_frame["wind_speed"].to_numpy())
+    print("Wind speed average:", speed_ave)
     dev_from_ave = np.zeros(shape=len(data_frame["wind_speed"]))
     for i in range(len(dev_from_ave)):
-        dev_from_ave[i] = (speed_ave - data_frame.at[i,"wind_speed"])*10
+        dev_from_ave[i] = speed_ave - data_frame.at[i,"wind_speed"]
     data_frame["wind_spd_dev_from_ave"] = dev_from_ave
     print(data_frame.head())
     
-    plots.plotExportHorizontalBarCode(data_frame["wind_dir_rad"].to_numpy(),
-                             data_frame["time"].to_numpy(),
-                             data_frame["wind_spd_dev_from_ave"].to_numpy())    
+    plots.plotExportDirPolar(data_frame["time"].to_numpy(),
+                            data_frame["wind_dir_rad"].to_numpy(),#np.ones(shape=(len(data_frame["time"]))),
+                            data_frame["fg"].to_numpy())
     
+    """plots.plotExportHorizontalBarCode(data_frame["time"].to_numpy(),
+                                      data_frame["wind_dir_rad"].to_numpy(),#np.ones(shape=(len(data_frame["time"]))),
+                                    data_frame["wind_spd_dev_from_ave"].to_numpy())    
+    """
     
 
 

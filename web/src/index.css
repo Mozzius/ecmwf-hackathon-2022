@@ -82,6 +82,10 @@ p {
   text-shadow: 1px 1px 1px #235785;
 }
 
+.app {
+  min-height: 100vh;
+}
+
 .linkles {
   color: #ffffff !important;
 }

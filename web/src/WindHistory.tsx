@@ -7,11 +7,7 @@ import "./WindHistory.css";
 const storms = {
   840: {
     name: "Storm Brendan",
-    info: `Storm Brendan was a deep Atlantic low-pressure system that brought strong winds and heavy rain to the UK and Ireland on 13 January 2020.  Named by Met Eireann, it was the second named storm of the 2019/2020 season. 
-
-    The Met Office issued a yellow wind warning for north-western parts of the UK where winds were strongest, with gusts reaching over 100mph across Scotland’s mountain summits.  The strong winds were accompanied by heavy rain across the UK, particularly across western England, Wales and western Scotland where 50mm of more rain fell.
-    
-    Strong winds caused delays or cancellations to ferry services in western Scotland, as well as several flight diversions across the UK during Monday evening.  In Northern Ireland and Wales, thousands of home lost power and some roads were shut due to fallen trees.`,
+    info: "Storm Brendan was a deep Atlantic low-pressure system that brought strong winds and heavy rain to the UK and Ireland on 13 January 2020.  Named by Met Eireann, it was the second named storm of the 2019/2020 season.",
   },
 };
 
@@ -65,7 +61,7 @@ function WindHistory() {
   if (!observations) return <p>Loading...</p>;
 
   return (
-    <div className="container" ref={ref}>
+    <div className="wind-history" ref={ref}>
       <div className="observations">
         {observations.map((obs) => {
           const [x, y] = [parseInt(obs.u10), parseInt(obs.v10)];
@@ -97,6 +93,7 @@ function WindHistory() {
           );
         })}
       </div>
+      <div className="place">Location: Reading</div>
       <div className="date">{date}</div>
     </div>
   );

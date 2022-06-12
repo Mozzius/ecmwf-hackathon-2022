@@ -23,7 +23,6 @@ def home():
         row["id"] = int(row["id"])
         dt_obj = hoursSinceEPOCHtoUNIX(row["time"])
         row["time"] = dt_obj.ctime()
-        print(dt_obj)
     return jsonify(data)
 
 

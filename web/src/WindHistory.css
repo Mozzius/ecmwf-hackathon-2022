@@ -1,16 +1,19 @@
-.container {
+.wind-history {
   width: 100%;
+  height: calc(100vh - 42px);
+  position: relative;
   overflow: auto;
+  background-color: white;
 }
 
 .observations {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   width: max-content;
-  margin: 0 calc(50% - 15px);
+  margin-left: calc(50vw - 15px);
 }
 
 .observation {
@@ -23,6 +26,10 @@
   align-items: center;
 }
 
+.observation:last-of-type {
+  margin-right: calc(50vw - 15px);
+}
+
 .wind {
   height: 20px;
   width: 2px;
@@ -32,13 +39,45 @@
 
 .storm {
   position: absolute;
-  top: 30%;
-  width: 80vw;
+  top: 10%;
+  width: 60vw;
+}
+
+.storm h1 {
+  text-shadow: none;
+  color: black;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  padding: 0;
+  width: 100%;
+}
+
+.storm p {
+  text-shadow: none;
+  color: black;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  width: 100%;
+}
+
+.date,
+.place {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+.place {
+  top: calc(15px + 42px);
+  left: 15px;
 }
 
 .date {
-  position: fixed;
-  bottom: 30%;
+  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
 }

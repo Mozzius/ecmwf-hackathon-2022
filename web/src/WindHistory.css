@@ -41,6 +41,10 @@
   position: absolute;
   top: 10%;
   width: 60vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .storm h1 {

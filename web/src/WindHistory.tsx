@@ -5,9 +5,25 @@ import useSWR from "swr";
 import "./WindHistory.css";
 
 const storms = {
+  0: {
+    name: "This interactive experiment shows the wind history of Reading",
+    info: "Scroll right to explore the various storms that have affected Reading over the past decades.",
+  },
   840: {
     name: "Storm Brendan",
     info: "Storm Brendan was a deep Atlantic low-pressure system that brought strong winds and heavy rain to the UK and Ireland on 13 January 2020.  Named by Met Eireann, it was the second named storm of the 2019/2020 season.",
+  },
+  769: {
+    name: "2013/2014 Winter Storms",
+    info: "The UK experienced a spell of extreme weather from late January to mid-February as a succession of major storms brought widespread impacts and damage to the UK. Around 6 major storms hit through this period, causing widespread flooding.",
+  },
+  743: {
+    name: "Early winter storms, late 2011",
+    info: "On 8 December 2011, a deep Atlantic low pressure system brought very strong winds across the northern half of the UK.",
+  },
+  718: {
+    name: "The Big Freeze of 2010",
+    info: "European windstorms bringing heavy rain and gale-force winds caused damage and flooding to the south of Great Britain on 13–14 November. November was the wettest month across the United Kingdom since records began in 1914",
   },
 };
 
@@ -45,10 +61,6 @@ function WindHistory() {
       const percent = scrollLeft / (scrollWidth - clientWidth);
       const nearest = Math.floor(percent * (observations.length - 1));
       const nearestObservation = observations[nearest];
-      console.log(
-        nearestObservation.id,
-        format(new Date(nearestObservation.time), "MMMM, yyyy")
-      );
       if (nearestObservation)
         setDate(format(new Date(nearestObservation.time), "MMMM, yyyy"));
     };
@@ -69,7 +81,8 @@ function WindHistory() {
             <div
               key={obs.id}
               className="observation"
-              data-year={format(new Date(obs.time), "MMMM, yyyy")}
+              data-date={format(new Date(obs.time), "MMMM, yyyy")}
+              data-id={obs.id}
             >
               {obs.id in storms && (
                 <div className="storm">

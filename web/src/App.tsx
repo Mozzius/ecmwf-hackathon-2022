@@ -53,6 +53,21 @@ function Vectors() {
   );
 }
 
+function Disasters() {
+  return (
+    <div className="disasters">
+      <div>
+        <p>All Disasters</p>
+        <img src="/ALL_NAT_DIS.svg" alt="disasters" />
+      </div>
+      <div>
+        <p>Extreme Weather</p>
+        <img src="/extreme_weather.svg" alt="extreme weather" />
+      </div>
+    </div>
+  );
+}
+
 function App() {
   return (
     <div className="app">
@@ -72,11 +87,17 @@ function App() {
             <Nav.Link className="linkles">Vectors</Nav.Link>
           </LinkContainer>
         </Nav.Item>
+        <Nav.Item>
+          <LinkContainer to="/disasters">
+            <Nav.Link className="linkles">Disasters</Nav.Link>
+          </LinkContainer>
+        </Nav.Item>
       </Nav>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/wind-history" element={<WindHistory />} />
         <Route path="/vectors" element={<Vectors />} />
+        <Route path="/disasters" element={<Disasters />} />
       </Routes>
     </div>
   );

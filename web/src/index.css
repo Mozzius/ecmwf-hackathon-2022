@@ -120,9 +120,30 @@ ul {
 }
 
 .central {
-  background-color:rgba(33, 129, 181, 1);
+  background-color: rgba(33, 129, 181, 1);
   margin: 20px 15% 0;
   height: 100%;
   padding: 20px 10px;
   border-radius: 20px;
+}
+
+.disasters div {
+  float: left;
+  width: 50%;
+  background-color: white;
+}
+
+.disasters p {
+  padding: 20px 0 0;
+  text-align: center;
+  text-shadow: none;
+  margin: 0 0 -30px;
+  z-index: 2;
+  position: relative;
+  color: black;
+}
+
+.disasters img {
+  width: 100%;
+  height: auto;
 }

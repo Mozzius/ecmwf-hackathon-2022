@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import { useEffect, useRef, useState } from "react";
-import useSWR from "swr";
+
+import observations from "./data.json";
 
 import "./WindHistory.css";
 
@@ -57,23 +58,12 @@ const storms = {
   },
 };
 
-type Observation = {
-  id: number;
-  time: number;
-  u10: string;
-  v10: string;
-};
-
 function WindHistory() {
-  const { data: observations, error } = useSWR<Observation[]>("/api/data");
   const [width, setWidth] = useState(window.innerWidth);
   const ref = useRef<HTMLDivElement>(null!);
-  const [date, setDate] = useState<string>("");
-
-  useEffect(() => {
-    if (observations)
-      setDate(format(new Date(observations[0].time), "MMMM, yyyy"));
-  }, [observations]);
+  const [date, setDate] = useState<string>(
+    format(new Date(observations[0].time), "MMMM, yyyy")
+  );
 
   // set the width on resize
   useEffect(() => {
@@ -96,11 +86,7 @@ function WindHistory() {
     };
     current.addEventListener("scroll", handleScroll);
     return () => current.removeEventListener("scroll", handleScroll);
-  }, [width, observations]);
-
-  if (error) return <p>Failed to load</p>;
-
-  if (!observations) return <p>Loading...</p>;
+  }, [width]);
 
   return (
     <div className="wind-history" ref={ref}>
